@@ -8,6 +8,8 @@ public class plataformaScript : MonoBehaviour {
     public bool toRight;
     public float limitxNegative;
 
+    public GameObject prefab1;
+    public GameObject prefab2;
 	// Use this for initialization
 	void Start () {
         toRight = true;
@@ -23,15 +25,18 @@ public class plataformaScript : MonoBehaviour {
         else
         {
             transform.position -= new Vector3(movementSpeed, 0, 0);
+
         }
 
         if (transform.position.x > limitxPositive)
         {
             toRight = false;
+            Instantiate(prefab2);
         }
         else if(transform.position.x<limitxNegative)
         {
             toRight = true;
+            Instantiate(prefab1);
         }
 	}
 }
